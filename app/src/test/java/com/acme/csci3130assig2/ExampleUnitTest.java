@@ -25,10 +25,10 @@ public class ExampleUnitTest {
             // - it is not “password” (case insensitive)
             // - it is at least 8 characters long
 
-            assertEquals(MainActivity.UserPasswordValidator.Stage1ValidatingPassword("PASSWOrD"), 1);
-            assertEquals(MainActivity.UserPasswordValidator.Stage1ValidatingPassword("XYZJ"), 1);
-            assertEquals(MainActivity.UserPasswordValidator.Stage1ValidatingPassword("XYZJKHIG"), 2);
-            assertEquals(MainActivity.UserPasswordValidator.Stage1ValidatingPassword("XYZJKHIGQR"), 2);
+            assertEquals(UserPasswordValidator.Stage1ValidatingPassword("PASSWOrD"), 1);
+            assertEquals(UserPasswordValidator.Stage1ValidatingPassword("XYZJ"), 1);
+            assertEquals(UserPasswordValidator.Stage1ValidatingPassword("XYZJKHIG"), 2);
+            assertEquals(UserPasswordValidator.Stage1ValidatingPassword("XYZJKHIGQR"), 2);
         }
 }
     @Test
@@ -41,21 +41,21 @@ public class ExampleUnitTest {
         // 5 - at least one digit
 
         // rule 2, 3 matching
-        assertEquals(MainActivity.UserPasswordValidator.Stage2ValidatingPassword("Xyzj"), 2);
+        assertEquals(UserPasswordValidator.Stage2ValidatingPassword("Xyzj"), 2);
 
         // rule 2, 3, 5 matching
-        assertEquals(MainActivity.UserPasswordValidator.Stage2ValidatingPassword("Xyzj57"), 3);
+        assertEquals(UserPasswordValidator.Stage2ValidatingPassword("Xyzj57"), 3);
 
         // rule 2, 3, 5, 1 matching
-        assertEquals(MainActivity.UserPasswordValidator.Stage2ValidatingPassword("Xyzj57kh"), 4);
+        assertEquals(UserPasswordValidator.Stage2ValidatingPassword("Xyzj57kh"), 4);
 
         // rule 2, 5, 1 matching
-        assertEquals(MainActivity.UserPasswordValidator.Stage2ValidatingPassword("xyzj57kh"), 3);
+        assertEquals(UserPasswordValidator.Stage2ValidatingPassword("xyzj57kh"), 3);
 
         // rule 2, 3, 5, 1 matching
-        assertEquals(MainActivity.UserPasswordValidator.Stage2ValidatingPassword("Xyzj57kh"), 4);
+        assertEquals(UserPasswordValidator.Stage2ValidatingPassword("Xyzj57kh"), 4);
 
         // rule 2, 1, 4, 5, 3 matching
-        assertEquals(MainActivity.UserPasswordValidator.Stage2ValidatingPassword("Xyzj57$kh"), 5);
+        assertEquals(UserPasswordValidator.Stage2ValidatingPassword("Xyzj57$kh"), 5);
     }
 }

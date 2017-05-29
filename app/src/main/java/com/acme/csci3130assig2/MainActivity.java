@@ -1,22 +1,43 @@
 package com.acme.csci3130assig2;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+
 import java.util.regex.Pattern;
 
 
-public class MainActivity extends AppCompatActivity {
-
+public class UserPasswordValidator extends AppCompatActivity {
+    EditText password;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main);}
+
+
+    public void submit(View view){
+        password = (EditText) findViewById(R.id.input);
+        int x =0;
+         x =0;
+        String user_password = password.getText().toString();
+            Stage1ValidatingPassword(user_password);
+            Stage2ValidatingPassword(user_password);
+        TextView out = (TextView) findViewById(R.id.output);
+
+        if (x<5){
+            out.setText("Not Strong: "+x);
+        }
+        else out.setText("Strong password: "+x);
     }
 
 
-    static class UserPasswordValidator {
 
-        static int Stage1ValidatingPassword(String password) {
+
+
+
+    public static int Stage1ValidatingPassword(String password) {
             if (password == null || password.isEmpty()) {
                 return 0;
             }
@@ -59,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-            }
+
 
 
 
